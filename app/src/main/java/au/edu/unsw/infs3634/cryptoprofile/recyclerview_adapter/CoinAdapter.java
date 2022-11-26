@@ -48,7 +48,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.MyViewHolder> 
         holder.name.setText(coin.getName());
         holder.change.setText(coin.getPercentChange1h() + " %");
         holder.value.setText(formatter.format(Double.valueOf(coin.getPriceUsd())));
-        holder.itemView.setTag(coin.getId());
+        holder.itemView.setTag(coin.getSymbol());
     }
 
     @Override
@@ -118,21 +118,13 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.MyViewHolder> 
                         // Make the comparison case insensitive
                         return o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
                     } else if (sortMethod == SORT_METHOD_VALUE) {
-                        // Sort by value in descending order
-                        return Double.valueOf(o2.getPriceUsd()).compareTo(Double.valueOf(o1.getPriceUsd()));
+                        return Double.valueOf(o1.getPriceUsd()).compareTo(Double.valueOf(o2.getPriceUsd()));
                     }
                     // By default sort the list by coin name
                     return o1.getName().compareTo(o2.getName());
                 }
             });
         }
-        notifyDataSetChanged();
-    }
-
-    // Set the supplied data to the adapter
-    public void setData(ArrayList<Coin> data) {
-        mCoins.clear();
-        mCoins.addAll(data);
         notifyDataSetChanged();
     }
 }
