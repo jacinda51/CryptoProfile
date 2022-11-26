@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -35,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
     private TextView mChange7d;
     private TextView mMarketcap;
     private TextView mVolume;
-    private ImageView mSearch, mArt;
+    private ImageView mSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,6 @@ public class DetailActivity extends AppCompatActivity {
         mMarketcap = findViewById(R.id.tvMarketcapField);
         mVolume = findViewById(R.id.tvVolumeField);
         mSearch = findViewById(R.id.ivSearch);
-        mArt = findViewById(R.id.ivImage);
 
         // Get the intent that started this activity and extract the string
         Intent intent = getIntent();
@@ -75,10 +72,6 @@ public class DetailActivity extends AppCompatActivity {
                     if(coin != null) {
                         NumberFormat formatter = NumberFormat.getCurrencyInstance();
                         setTitle(coin.getName());
-                        Glide.with(DetailActivity.this)
-                                .load("https://www.coinlore.com/img/" + coin.getNameid() + ".png")
-                                .fitCenter()
-                                .into(mArt);
                         mName.setText(coin.getName());
                         mSymbol.setText(coin.getSymbol());
                         mValue.setText(formatter.format(Double.valueOf(coin.getPriceUsd())));
