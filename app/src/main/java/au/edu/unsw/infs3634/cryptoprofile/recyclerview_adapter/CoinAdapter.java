@@ -115,8 +115,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.MyViewHolder> 
                 @Override
                 public int compare(Coin o1, Coin o2) {
                     if (sortMethod == SORT_METHOD_NAME) {
-                        // Make the comparison case insensitive
-                        return o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
+                        return o1.getName().compareTo(o2.getName());
                     } else if (sortMethod == SORT_METHOD_VALUE) {
                         return Double.valueOf(o1.getPriceUsd()).compareTo(Double.valueOf(o2.getPriceUsd()));
                     }
