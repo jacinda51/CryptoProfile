@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">INFS3634 CryptoProfile</string>
     <string name="welcome_massage">Hello from Crypto Profile App!</string>
-    <string name="button_url">Open URL</string>
-    <string name="button_launch">Launch Detail Activity</string>
-    <string name="textview_message">Message</string>
 </resources>
