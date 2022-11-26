@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         btnLaunchActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchDetailActivity("ETH");
+                launchDetailActivity("Message from MainActivity");
             }
         });
     }
